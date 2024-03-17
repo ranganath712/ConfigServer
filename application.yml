@@ -1,1 +1,42 @@
-
+spring:
+  datasource:
+    password: dragon8Ra1$
+    url: jdbc:mysql://localhost:3306/Rest_Master_DB
+    username: root
+    driver: com.mysql.cj.jdbc.Driver     
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  boot: 
+    admin:
+      client: 
+        url: http://localhost:1111/      
+springdoc:
+    swagger-ui:
+      path: swagger-ui.html
+eureka:
+  client:
+      register-with-eureka: true
+      fetch-registry: true
+      service-url: 
+        defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health    
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+  tracing:
+    sampling:
+      probability: 1.0
